@@ -1,6 +1,6 @@
 import spotipy
 import json
-import random
+import secrets
 import os
 import sys
 from spotipy.oauth2 import SpotifyOAuth
@@ -51,7 +51,7 @@ while True:
 print("finished indexing")
 print("adding random indexes to queue")
 for i in range(len(songs)):
-    rand = random.randint(0,len(songs)-1)
+    rand = secrets.randbelow(len(songs)-1)
     spotifyObject.add_to_queue(songs[rand])
     del songs[rand]
 
